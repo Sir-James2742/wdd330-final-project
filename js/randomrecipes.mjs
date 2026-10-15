@@ -41,45 +41,49 @@ async function getRandomRecipes() {
     }
 }
 
-function displayRecipes(recipes) {
 
+function displayRecipes(recipes) {
     const container = document.querySelector("#recipe-container");
 
     container.innerHTML = recipes.map(meal => `
         <div class="col-sm-6 col-lg-4">
-
-            <div class="card h-100 shadow-sm">
-
-                <img
-                    src="${meal.strMealThumb}"
-                    class="card-img-top"
-                    alt="${meal.strMeal}"
-                >
+            <article class="card recipe-card h-100">
+                <div class="recipe-image-wrapper">
+                    <img
+                        src="${meal.strMealThumb}"
+                        class="card-img-top recipe-card-image"
+                        alt="${meal.strMeal}"
+                        loading="lazy"
+                    >
+                </div>
 
                 <div class="card-body">
+                    <h3 class="card-title">${meal.strMeal}</h3>
+                    <p class="card-text">${meal.strCategory ?? ""}</p>
+                    <p class="card-text">${meal.strArea ?? ""}</p>
 
-                    <h3 class="card-title">
-                        ${meal.strMeal}
-                    </h3>
-
-                    <p class="card-text">
-                        ${meal.strCategory}
-                    </p>
-
-                    <p class="card-text">
-                        ${meal.strArea}
-                    </p>
-
-                    <button class="btn btn-success">
+                    <button
+                        class="learn-more-button"
+                        type="button"
+                        data-recipe-id="${meal.idMeal}"
+                    >
                         Learn More
+                    </button>
+                    
+                    <button
+                        class="favorite-toggle"
+                        type="button"
+                        data-recipe-id="${meal.idMeal}"
+                        aria-pressed="false"
+                    >
+                        ♡ Add to Favorites
                     </button>
 
                 </div>
-
-            </div>
-
+            </article>
         </div>
     `).join("");
 }
+
 
 export { getRandomRecipes, displayRecipes };

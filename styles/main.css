@@ -1,0 +1,396 @@
+
+
+/* Recipe category browsing */
+.browse-section,
+#recipe-details {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.browse-section h1,
+.recipe-detail h1 {
+    color: #245b35;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 30px;
+}
+
+.category-button {
+    padding: 10px 17px;
+    border: 1px solid #c7ddc8;
+    border-radius: 25px;
+    background: #eff7ed;
+    color: #245b35;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.category-button:hover,
+.category-button:focus-visible {
+    background: #28643b;
+    color: white;
+}
+
+/* Recipe grid */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.recipe-card {
+    overflow: hidden;
+    border: 1px solid #e1e9df;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+}
+
+.recipe-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 18px;
+}
+
+.recipe-card h3 {
+    color: #245b35;
+}
+
+.learn-more-button,
+.back-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    background: #28643b;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.learn-more-button:hover,
+.back-button:hover {
+    background: #1c482b;
+}
+
+/* Recipe details */
+.detail-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.category-label {
+    color: #367947;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-section {
+    margin-top: 35px;
+}
+
+.detail-section h2 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dce9dc;
+    color: #245b35;
+}
+
+.ingredient-list {
+    padding: 0;
+    list-style: none;
+}
+
+.ingredient-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 12px 8px;
+    border-bottom: 1px solid #e5ece3;
+}
+
+.ingredient-list li span:last-child {
+    color: #58705b;
+    text-align: right;
+}
+
+.instruction-list {
+    padding-left: 25px;
+    line-height: 1.8;
+}
+
+.instruction-list li {
+    padding: 0 0 12px 5px;
+}
+
+/* Recipe card base styling */
+.recipe-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #e0e8df;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(20, 60, 30, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Green glow when hovering or using keyboard focus */
+.recipe-card:hover,
+.recipe-card:focus-within {
+    transform: translateY(-8px);
+    border-color: #43a047;
+    box-shadow:
+        0 12px 25px rgba(30, 120, 55, 0.16),
+        0 0 12px rgba(76, 175, 80, 0.35),
+        0 0 28px rgba(76, 175, 80, 0.18);
+}
+
+/* Clip the image zoom to its container */
+.recipe-image-wrapper {
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: #edf5ed;
+}
+
+/* Smooth image zoom */
+.recipe-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.recipe-card:hover .recipe-card-image,
+.recipe-card:focus-within .recipe-card-image {
+    transform: scale(1.08);
+}
+
+/* Card content */
+.recipe-card .card-body {
+    padding: 1.25rem;
+}
+
+.recipe-card .card-title {
+    color: #245c35;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: color 0.25s ease;
+}
+
+.recipe-card:hover .card-title {
+    color: #16803c;
+}
+
+/* Learn More button */
+.recipe-card .learn-more-button {
+    display: inline-block;
+    padding: 0.65rem 1.1rem;
+    border: 0;
+    border-radius: 8px;
+    background: #287d3c;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.recipe-card .learn-more-button:hover {
+    background: #185c2a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 92, 42, 0.25);
+}
+
+.recipe-card .learn-more-button:focus-visible {
+    outline: 3px solid #80cbc4;
+    outline-offset: 3px;
+}
+.recipe-modal {
+    width: min(900px, 92%);
+    max-height: 90vh;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 16px;
+    overflow-y: auto;
+    background: #fff;
+    color: #243024;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-modal::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(3px);
+}
+
+.close-modal-button {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 10;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #e8f5e9;
+    color: #245c35;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.close-modal-button:hover {
+    background: #c8e6c9;
+}
+
+#recipe-details {
+    clear: both;
+    padding-top: 1rem;
+}
+
+/* Accessibility: reduce movement when requested */
+@media (prefers-reduced-motion: reduce) {
+    .recipe-card,
+    .recipe-card-image,
+    .recipe-card .card-title,
+    .recipe-card .learn-more-button {
+        transition: none;
+    }
+
+    .recipe-card:hover,
+    .recipe-card:focus-within,
+    .recipe-card .learn-more-button:hover {
+        transform: none;
+    }
+
+    .recipe-card:hover .recipe-card-image,
+    .recipe-card:focus-within .recipe-card-image {
+        transform: none;
+    }
+}
+
+/* Wikimedia background information */
+.wikimedia-info {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+    background: #f0f7ef;
+}
+
+.wikimedia-info h2 {
+    margin-top: 0;
+    color: #245c35;
+    font-size: 1.3rem;
+}
+
+.wikimedia-info p {
+    color: #344638;
+    line-height: 1.7;
+}
+
+.wikimedia-info a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #176b32;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.wikimedia-info a:hover {
+    color: #0d421e;
+}
+
+/* Favorite buttons */
+.favorite-toggle {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #287d3c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.favorite-toggle:hover {
+    background: #e8f5e9;
+}
+
+.favorite-toggle[aria-pressed="true"] {
+    background: #e8f5e9;
+    color: #b3261e;
+    border-color: #b3261e;
+}
+
+.favorite-toggle:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.favorites-page {
+    padding: 2rem 1rem;
+}
+
+.favorites-page h1 {
+    color: #245c35;
+    margin-bottom: 0.75rem;
+}
+
+#favorites-count {
+    margin: 1rem 0;
+    color: #526452;
+}
+ .card-body a {
+ text-decoration: none;
+}
+
+@media (max-width: 650px) {
+
+    .browse-section,
+    #recipe-details {
+        padding: 14px;
+    }
+
+    .detail-header {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image {
+        max-height: 300px;
+    }
+     .recipe-modal {
+        width: 95%;
+        max-height: 92vh;
+        padding: 1rem;
+    }
+}
+

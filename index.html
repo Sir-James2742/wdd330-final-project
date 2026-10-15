@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe finder Home page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
     <script type="module" src="./js/main.mjs"></script>
 </head>
 <body>
@@ -33,7 +34,7 @@
                         </li>
         
                         <li class="nav-item">
-                            <a class="nav-link" href="/favorites">
+                            <a class="nav-link" href="/favorite.html">
                                 Favorites
                             </a>
                         </li>
@@ -73,7 +74,6 @@
         </section>
         <main class="container py-5">
             
-            
             <section class="text-center mb-5">
                 <h1 class="display-5 fw-bold">Discover Your Next Meal</h1>
         
@@ -93,7 +93,25 @@
                 <div id="recipe-container" class="row g-4">
                     
             </section>
+            <section id="browse-section" class="browse-section">
+                
+                <p>Explore recipes by category and find something delicious to cook.</p>
             
+                <h2>Browse Categories</h2>
+                <div id="recipe-categories" class="category-list"></div>
+            
+                <div id="recipe-list"></div>
+            </section>
+            
+           
+<dialog id="recipe-modal" class="recipe-modal" aria-label="Recipe details">
+      <button id="close-recipe-modal" class="close-modal-button" type="button" aria-label="Close recipe details">
+        &times;
+    </button>
+
+    <div id="recipe-details"></div>
+</dialog>
+
         
         </main>
 
